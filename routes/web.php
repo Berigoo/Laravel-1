@@ -18,7 +18,11 @@ Route::get('/', function () {
 });
 Route::get('/form', [MainCon::class, 'dumpAll']);
 Route::post('/form/submit', [MainCon::class, 'doCalc']);
+Route::post('/form/submit/{id}', [MainCon::class, 'updateDB']);
 
 Route::get('/templatedemo', function (){
     return view('main');
 });
+
+Route::get('/history', [MainCon::class, 'dumpHistory']);
+Route::get('/edit/{id}', [MainCon::class, 'editView']);
